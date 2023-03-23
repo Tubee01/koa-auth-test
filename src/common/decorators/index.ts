@@ -1,6 +1,7 @@
 import { Endpoint } from './endpoint.decorator';
 
 export * from './controller.decorator';
+export * from './api-protected.decorator';
 
 import { HttpMethodEnum } from 'koa-body';
 

@@ -19,12 +19,17 @@
   "license": "ISC",
   "dependencies": {
     "@koa/router": "^12.0.0",
+    "bcrypt": "^5.1.0",
     "dotenv": "^16.0.3",
     "koa": "^2.14.1",
     "koa-body": "^6.0.1",
     "koa-json": "^2.0.2",
     "koa-logger": "^3.2.1",
+    "koa-passport": "^6.0.0",
+    "koa-session": "^6.4.0",
     "koa2-swagger-ui": "^5.7.0",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
     "winston": "^3.8.2",
     "winston-daily-rotate-file": "^4.7.1",
     "yamljs": "^0.3.0"
@@ -53,9 +58,6 @@
     "typescript": "^5.0.2"
   },
   "lint-staged": {
-    "*.{js,ts}": [
-      "eslint --fix",
-      "git add"
-    ]
+    "*.ts": "eslint --cache --fix"
   }
 }

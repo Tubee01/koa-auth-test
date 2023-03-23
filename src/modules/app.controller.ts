@@ -1,4 +1,4 @@
-import { Controller, Get } from '@common/decorators';
+import { ApiProtected, Controller, Get } from '@common/decorators';
 import Application, { Context } from 'koa';
 import { AppService } from './app.service';
 
@@ -11,12 +11,14 @@ export class AppController {
   }
 
   @Get()
+  @ApiProtected()
   async findAll(ctx: Context) {
     const objects = await this.appService.findAll();
     ctx.body = objects;
   }
 
   @Get('random')
+  @ApiProtected()
   async findRandom(ctx: Context) {
     const object = await this.appService.findRandom();
     ctx.body = object;

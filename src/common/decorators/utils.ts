@@ -1,1 +1,1 @@
-export const normalizePath = (path: string) => path.replace(/(^\/|\/$)/g, '');
+export const normalizePath = (path: string) => path.replace(/(^\/+|\/+$)/g, '');

@@ -7,6 +7,12 @@ export const Controller =
     target.prototype.routes?.forEach((route: Route) => {
       const normalizedPath = normalizePath(path);
       const normalizedRoutePath = normalizePath(route.path);
-      route.path = normalizedRoutePath ? `${normalizedPath}/${normalizedRoutePath}` : `/${normalizedPath}`;
+
+      if (normalizedPath === '' || normalizedPath === '/') {
+        route.path = `/${normalizedRoutePath}`;
+        return;
+      }
+
+      route.path = `/${normalizedPath}/${normalizedRoutePath}`;
     });
   };

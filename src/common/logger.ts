@@ -21,7 +21,7 @@ export class Logger {
     const myFormat = winston.format.printf(({ level, message, timestamp, ...meta }) => {
       const caller = Object.values(meta).join('');
 
-      if (!caller ) {
+      if (!caller) {
         return `${timestamp} [${level}]: ${message}`;
       }
 

@@ -17,12 +17,13 @@ export function errorHandler(): (ctx: Context, next: Next) => Promise<void> {
         ctx.status = 500;
         ctx.body = {
           status: -1,
-          message: 'Internal Server Error',
+          message: err.message || 'Internal Server Error',
         };
       }
 
-      logger.error(JSON.stringify(err));
-      ctx.app.emit('error', err, ctx);
+      const { message, stack } = err;
+
+      logger.error(JSON.stringify({ message, stack }), 'Global Error Handler');
     }
   };
 }

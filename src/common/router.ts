@@ -28,6 +28,7 @@ export class Router<T> {
     const { logger } = this.app.context;
 
     function controllerCallback<C>(controllerInstance: C, handler: string) {
+
       return async (ctx: Context, next: Next) => await controllerInstance[handler](ctx, next);
     }
 
