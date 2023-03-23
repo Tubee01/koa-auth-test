@@ -1,0 +1,61 @@
+{
+  "name": "koa-template",
+  "version": "0.0.0",
+  "description": "",
+  "main": "src/main.ts",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "ts-node-dev -r tsconfig-paths/register --watch *.yml .",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "ts-node dist/main.js",
+    "prepare": "husky install",
+    "prettier": "prettier --write \"**/*.{js,ts,json,yml}\"",
+    "lint": "eslint --ext .ts src/",
+    "lint:fix": "eslint --ext .ts src/ --fix",
+    "pre:commit": "pretty-quick --staged && lint-staged"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/router": "^12.0.0",
+    "dotenv": "^16.0.3",
+    "koa": "^2.14.1",
+    "koa-body": "^6.0.1",
+    "koa-json": "^2.0.2",
+    "koa-logger": "^3.2.1",
+    "koa2-swagger-ui": "^5.7.0",
+    "winston": "^3.8.2",
+    "winston-daily-rotate-file": "^4.7.1",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.13.5",
+    "@types/koa-bodyparser": "^4.3.10",
+    "@types/koa-json": "^2.0.20",
+    "@types/koa-logger": "^3.1.2",
+    "@types/koa__router": "^12.0.0",
+    "@types/node": "^18.15.3",
+    "@types/yamljs": "^0.2.31",
+    "@typescript-eslint/eslint-plugin": "^5.48.2",
+    "@typescript-eslint/parser": "^5.48.2",
+    "eslint": "^8.32.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
+    "prettier": "^2.8.5",
+    "pretty-quick": "^3.1.3",
+    "rimraf": "^4.4.0",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.1.2",
+    "typescript": "^5.0.2"
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --fix",
+      "git add"
+    ]
+  }
+}

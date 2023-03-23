@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+if [ "$(expr substr $(uname -s) 1 5)" == "MINGW" ]; then
+  # Windows
+  npm.cmd run pre:commit
+else
+  npm run pre:commit
+fi

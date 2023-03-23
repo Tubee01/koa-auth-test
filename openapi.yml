@@ -1,0 +1,45 @@
+openapi: '3.0.3'
+info:
+  title: 'My Star Wars Quotes API'
+  version: '0.0.0'
+paths:
+  /:
+    get:
+      summary: 'Get a list of Star Wars characters and their quotes'
+      responses:
+        200:
+          description: 'A list of quotes'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StarWarsCharacter'
+  /random:
+    get:
+      summary: 'Get a random Star Wars quote'
+      responses:
+        200:
+          description: 'A random quote'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StarWarsCharacter'
+components:
+  schemas:
+    StarWarsCharacter:
+      type: object
+      properties:
+        name:
+          type: string
+        quotes:
+          type: array
+          items:
+            $ref: '#/components/schemas/StarWarsCharacterQuote'
+    StarWarsCharacterQuote:
+      type: object
+      properties:
+        quote:
+          type: string
+        movie:
+          type: string
